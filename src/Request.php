@@ -23,9 +23,14 @@ class Request {
         $this->factory($_SERVER, $_REQUEST, $_FILES, $_SESSION, $_COOKIE);
     }
 
-    public function getAllServer(): array
+    public function path(): string
     {
-        return $this->server;
+        return $this->server['REQUEST_URI'];
+    }
+
+    public function method(): string
+    {
+        return $this->server['REQUEST_METHOD'];
     }
 
 }
